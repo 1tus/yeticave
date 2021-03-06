@@ -35,9 +35,8 @@ function getData(string $sql, $link):array {
     if ($result) {
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     } else {
-        $error = mysqli_error($link);
         print renderTemplate('templates/error.php', [
-            'error' => $error
+            'error' => mysqli_error($link)
         ]);
         exit();
     }

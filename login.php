@@ -51,7 +51,7 @@ $content = renderTemplate('templates/navigation.php', [
     'innerContent' => $innerContent
 ]);
 print renderTemplate('templates/layout.php', [
-    'title' => 'Главная',
+    'title' => 'Вход',
     'userAvatar' => $userAvatar,
     'categories' => $categories,
     'content' => $content

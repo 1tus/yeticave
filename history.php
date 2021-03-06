@@ -19,7 +19,7 @@ $content = renderTemplate('templates/navigation.php', [
     'innerContent' => $innerContent
 ]);
 print renderTemplate('templates/layout.php', [
-    'title' => 'Главная',
+    'title' => 'История просмотров',
     'categories' => $categories,
     'content' => $content
 ]);

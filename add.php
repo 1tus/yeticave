@@ -27,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($lot['category'] === 'Выберите категорию') {
         $errors['category'] = 'Выберите категорию';
     }
-    if (!filter_var($lot['lot-rate'], FILTER_VALIDATE_INT, array('options' => array('min_range' => 1)))) {
+    if (!filter_var($lot['lot-rate'], FILTER_VALIDATE_INT, array('options' => array('min_range' => 1))) && !empty($lot['lot-rate'])) {
         $errors['lot-rate'] = 'Цена должна быть больше 0';
     }
-    if (!filter_var($lot['lot-step'], FILTER_VALIDATE_INT, array('options' => array('min_range' => 1)))) {
+    if (!filter_var($lot['lot-step'], FILTER_VALIDATE_INT, array('options' => array('min_range' => 1))) && !empty($lot['lot-step'])) {
         $errors['lot-step'] = 'Шаг должен быть больше 0';
     }
     if (strtotime($lot['lot-date']) - time() < 0 && !empty($lot['lot-date'])) {

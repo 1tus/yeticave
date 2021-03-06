@@ -1,3 +1,6 @@
+<?php if ($_GET['user'] === 'new'): ?>
+    <div>Теперь вы можете войти, используя свой email и пароль</div>
+<?php endif; ?>
 <form class="form container <?= $formError ?>" action="login.php" method="post" enctype="multipart/form-data">
     <h2>Вход</h2>
     <div class="form__item <?= $errors['email'] ? 'form__item--invalid' : '' ?>">
