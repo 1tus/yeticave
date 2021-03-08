@@ -1,18 +1,18 @@
 <section class="lot-item container">
-    <h2><?= $lot['name'] ?></h2>
+    <h2><?= htmlspecialchars($lot['name']) ?></h2>
     <div class="lot-item__content">
         <div class="lot-item__left">
             <div class="lot-item__image">
                 <img src="<?= $lot['img_path'] ?>" width="730" height="548" alt="<?= $lot['name'] ?>">
             </div>
             <p class="lot-item__category">Категория: <span><?= $lot['category'] ?></span></p>
-            <p class="lot-item__description"><?= $lot['message'] ?? '' ?></p>
+            <p class="lot-item__description"><?= htmlspecialchars($lot['description']) ?? '' ?></p>
         </div>
         <div class="lot-item__right">
             <?php if (isset($_SESSION['user'])): ?>
                 <div class="lot-item__state">
                     <div class="lot-item__timer timer">
-                        <?= $lot['lot-date'] ?? '' ?>
+                        <?= getLastTime($lot['finish_date'], true) ?>
                     </div>
                     <div class="lot-item__cost-state">
                         <div class="lot-item__rate">

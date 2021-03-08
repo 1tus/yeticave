@@ -7,7 +7,6 @@ session_start();
 if (isset($_COOKIE['visitedLots'])) {
     $visitedLotsIds = json_decode($_COOKIE['visitedLots']);
     $innerContent = renderTemplate('templates/history.php', [
-        'categories' => $categories,
         'lotsList' => $lotsList,
         'visitedLotsIds' => $visitedLotsIds
     ]);

@@ -55,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     if (count($errors)) {
 		$innerContent = renderTemplate('templates/add.php', [
-            'categories' => $categories,
             'errors' => $errors,
             'lot' => $lot,
             'formError' => 'form--invalid',
@@ -63,14 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
 	} else {
         $innerContent = renderTemplate('templates/lot.php', [
-            'categories' => $categories,
             'errors' => $errors,
             'lot' => $lot
         ]);
     }
 } else {
 	$innerContent = renderTemplate('templates/add.php', [
-        'categories' => $categories
     ]);
 }
 $content = renderTemplate('templates/navigation.php', [

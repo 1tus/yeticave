@@ -4,7 +4,7 @@ require_once('app/init.php');
 
 session_start();
 
-$users = getData('SELECT `email`, `name`, `password_hash`, `avatar_path` FROM `users`', $link);
+$users = getDataAll("SELECT `email`, `name`, `password_hash`, `avatar_path` FROM `users`", $link);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $login = $_POST;
@@ -32,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
     if (count($errors)) {
 		$innerContent = renderTemplate('templates/login.php', [
-            'categories' => $categories,
             'errors' => $errors,
             'login' => $login,
             'formError' => 'form--invalid'
@@ -43,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } else {
     $innerContent = renderTemplate('templates/login.php', [
-        'categories' => $categories
     ]);
 }
 $content = renderTemplate('templates/navigation.php', [

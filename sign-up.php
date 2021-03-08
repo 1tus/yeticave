@@ -47,7 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     if (count($errors)) {
         $innerContent = renderTemplate('templates/sign-up.php', [
-            'categories' => $categories,
             'user' => $user,
             'errors' => $errors,
             'formError' => 'form--invalid'
@@ -74,7 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } else {
     $innerContent = renderTemplate('templates/sign-up.php', [
-        'categories' => $categories,
         'user' => $user
     ]);
 }
