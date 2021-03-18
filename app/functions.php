@@ -11,14 +11,14 @@ function renderTemplate(string $fullpath, array $variables): string {
 function formatPrice(float $price): string {
     return number_format($price, 0, '', ' ') . ' ₽';
 }
-function getLastTime($timeToFinish, $seconds = false): string {
+function getLastTime($timeToFinish, $isSeconds = false): string {
     date_default_timezone_set("Europe/Moscow");
     $ts = time();
     $tsToFinish = strtotime($timeToFinish);
     $secsToFinish = $tsToFinish - $ts;
     $hours = floor($secsToFinish / 3600);
     $minutes = floor(($secsToFinish % 3600) / 60);
-    if ($seconds === false) {
+    if ($isSeconds === false) {
         return "$hours:$minutes";
     } else {
         $sec = $secsToFinish - $hours * 3600 - $minutes * 60;
